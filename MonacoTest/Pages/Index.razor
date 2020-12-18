@@ -1,0 +1,24 @@
+﻿@page "/"
+
+<h1>Blazor Monaco</h1>
+
+<!-- Wrapping in red border just so you can see where the control is on the screen -->
+<div style="border-width: 1px; border-color: red; border-style: solid;">
+    <MonacoEditor Id="editor" ConstructionOptions="EditorOptions" />
+</div>
+
+@code
+{
+    private StandaloneEditorConstructionOptions EditorOptions(MonacoEditor editor)
+    {
+        return new StandaloneEditorConstructionOptions
+        {
+            Language = "javascript",
+            AutomaticLayout = true,
+            Value = @"
+                // this is where the code would go
+                // but it's smashed to 5px on the screen
+            "
+        };
+    }
+}
